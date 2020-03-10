@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>InstaFeedDemo!</title>
+	<script src="instaFeed.js"></script>
+</head>
+<body>
+	<input type="text" id="acc" name="acc" placeholder="public instagram account" autocomplete="off"><br><br>
+	<button class="button" onclick="btnClick()" id="b">get instagram feed</button><br>
+	<div id="html_instafeed"></div>
+	scripts by José Castro
+	<script>
+	myWebsite = "";//ur website url without "https://"
+	// https://example.com -> urWebsite = "example.com";
+	numberOfFotos = 6; //number of fotos you want download
+		function btnClick(){
+		  var instaAcc = document.getElementById('acc').value;
+		  if (instaAcc=="") alert('insert a public instagram account in the textbox');
+		  getInstaFeed(instaAcc);
+		}
+	</script>
+</body>
+</html>
