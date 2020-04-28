@@ -22,20 +22,18 @@ function getInstaFeed(acc){
     request.send(null);
     request.onreadystatechange = function() {
       if (request.readyState == 4)
-        var str = request.responseText;
-        var index1 = 1;
-        var index2 = 1;
-        var cont = 0;
-        while((index1!=-1 || index2!=-1) & cont<numberOfFotos){
-          if(str===undefined) break;
-          index1 = str.indexOf('"shortcode":"');
-          index2 = str.indexOf('","edge_media_to_comment"');
-          if(index1==-1 || index2==-1) break;
-          cont++;
-          var foto = str.substring(index1+13,index2);
-          buildInstaFeedHTML(foto, cont);
-          str = str.slice(index2+20);
-        }
+      var str = request.responseText;
+      var index1 = 1;
+      var cont = 0;
+      while((index1!=-1) & cont<numberOfFotos){
+        if(str===undefined) break;
+        index1 = str.indexOf('"shortcode":"');
+        if(index1==-1 ) break;
+        cont++;
+        var foto = str.substring(index1+13,index1+13+11);
+        buildInstaFeedHTML(foto, cont);
+        str = str.slice(index1+25);
+      }
     };
 }
 
